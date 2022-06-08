@@ -1,5 +1,8 @@
+/.vscode
 /bin
+/build
 /node_modules
 
+*.sh
 local.md
 package-lock.json
