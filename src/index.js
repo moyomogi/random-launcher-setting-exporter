@@ -1,20 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import './index.css';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
-
-// // If you want to start measuring performance in your app, pass a function
-// // to log results (for example: reportWebVitals(console.log))
-// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -23,8 +6,6 @@ import './index.css';
 import { createRoot } from 'react-dom/client';
 import reportWebVitals from "./reportWebVitals";
 
-// semantic-ui
-// https://semantic-ui.com/introduction/getting-started.html
 class TextForm extends React.Component {
   constructor(props) {
     super(props);
@@ -58,23 +39,30 @@ class TextForm extends React.Component {
 class JSONForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { json: {} };
+    // this.state = { json: {} };
+    this.state = { json: { ESCsupport: false } };
 
     this.post = this.post.bind(this);
   }
 
   post(item) {
     console.log(this.state.json, "//", item);
+
     let json = this.state.json;
     json[item.key] = item.value;
-    this.setState({ json: json });
+    this.setState({ json });
+
     console.log(JSON.stringify(this.state.json));
+  }
+  onChange(key) {
+    let json = this.state.json;
+    json[key] = !json[key];
+    this.setState({ json });
   }
 
   render() {
     return (
       <div className="ui container centered padded">
-        {/* TODO: こんなところに CDN を置くな */}
         <link
           async
           rel="stylesheet"
@@ -151,6 +139,14 @@ class JSONForm extends React.Component {
                 label="Difficulty"
                 holder="very Easy"
               />
+            </div>
+            <div className="one field">
+              <input
+                type="checkbox"
+                onChange={() => this.onChange("ESCsupport")}
+                checked={this.props.checked}
+              />
+              Escキー強制終了 (ランチャー機能)
             </div>
 
             <div className="ui header block inverted">Export</div>

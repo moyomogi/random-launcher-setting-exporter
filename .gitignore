@@ -2,8 +2,10 @@
 /.vscode
 /bin
 /build
+/venv
 /node_modules
 
 *.sh
-local.md
+*.py
+*.md
 package-lock.json
