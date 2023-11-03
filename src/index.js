@@ -40,7 +40,7 @@ class JSONForm extends React.Component {
   constructor(props) {
     super(props);
     // this.state = { json: {} };
-    this.state = { json: { ESCsupport: false } };
+    this.state = { json: { ESCsupport: true } };
 
     this.post = this.post.bind(this);
   }
