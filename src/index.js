@@ -144,7 +144,7 @@ class JSONForm extends React.Component {
               <input
                 type="checkbox"
                 onChange={() => this.onChange("ESCsupport")}
-                checked={this.props.checked}
+                checked={this.state.json.ESCsupport}
               />
               Escキー強制終了 (ランチャー機能)
             </div>
